@@ -4,11 +4,7 @@
 #define PHP_IP "192.168.111.198"
 
 SoftwareSerial esp(2,3);
-
-
-
 void setup() {
-  // put your setup code here, to run once:
 esp.begin(115200);
 
 esp.write("AT+UART_DEF=9600,8,1,0,0\r\n");
@@ -20,11 +16,8 @@ esp.begin(9600);
 delay(4000);
 
 espInit();
-
 espConnect();
-
 espWebInit();
-
 espSend();
 }
 
@@ -88,7 +81,7 @@ void espConnect(){
   esp.write(13);
   esp.write(10);
 
-  delay(10000);
+  delay(7000);
   
   
 }
@@ -115,9 +108,16 @@ void espWebInit(){
 }
 void espSend(){
   delay(2000);
-  esp.write("AT+CIPSEND=92\r\n");
-  delay(1000);
-  esp.write("GET /reciever/input.php?chip-id=00 00 00 00 00&hour=22:5:10 HTTP/1.1\r\n Host: "PHP_IP"\r\n\r\n");
+  esp.write("AT+CIPSEND=108\r\n");
+  delay(2000);
+  esp.write("GET /reciever/input.php?chip-id=0000000000&hour=12546 HTTP/1.1\r\nHost: 192.168.111.198\r\nConnection: close");
+  esp.write(13);
+  esp.write(10);
+  //esp.write("Host: 192.168.111.22");
+//    esp.write(13);
+//  esp.write(10);
+    esp.write(13);
+  esp.write(10);
 
     delay(1000);
 
