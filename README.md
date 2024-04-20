@@ -1,0 +1,1 @@
+When recreating consult the project the scheme. Flash the arduino code, setup xampp's apache and mysql. Configure the phpmyadmin according to the file or the oposite. Flash Ai-Thinker firmware to the esp01 module.
